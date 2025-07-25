@@ -7,29 +7,35 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f5f1e9;
-      padding: 40px;
+      padding: 60px 20px;
       text-align: center;
       color: #333;
     }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
     #numero {
-      font-size: 24px;
+      font-size: 48px;
       background: white;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 25px 40px;
+      border-radius: 12px;
       user-select: all;
-      margin-bottom: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
       cursor: pointer;
       display: inline-block;
+      letter-spacing: 5px;
     }
     button {
       background: #0052cc;
       color: white;
       border: none;
-      padding: 12px 25px;
-      font-size: 18px;
-      border-radius: 8px;
+      padding: 20px 50px;
+      font-size: 28px;
+      border-radius: 12px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     button:hover {
       background: #003d99;
@@ -39,6 +45,7 @@
 <body>
   <h1>Datos para transferencia</h1>
   <div id="numero">4152 3141 1447 4920</div>
+  <br/>
   <button onclick="navigator.clipboard.writeText(document.getElementById('numero').textContent).then(() => alert('¡Número copiado!'));">Copiar número</button>
 </body>
 </html>

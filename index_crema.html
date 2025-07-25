@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datos para transferencia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f1e9; /* color crema suave */
+      padding: 40px;
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+      color: #0052cc;
+    }
+    .numero-tarjeta {
+      font-size: 24px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      user-select: all;
+      cursor: pointer;
+      display: inline-block;
+      margin-bottom: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    button {
+      background-color: #0052cc;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #003d99;
+    }
+    .copiado {
+      color: green;
+      margin-top: 10px;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Datos para transferencia</h1>
+
+  <div>
+    <div class="numero-tarjeta" id="numeroTarjeta">4152 3141 1447 4920</div>
+    <button onclick="copiarNumero()">Copiar número</button>
+    <div class="copiado" id="mensajeCopiado">¡Número copiado!</div>
+  </div>
+
+  <script>
+    function copiarNumero() {
+      const numero = document.getElementById('numeroTarjeta').textContent;
+      navigator.clipboard.writeText(numero).then(() => {
+        const mensaje = document.getElementById('mensajeCopiado');
+        mensaje.style.display = 'block';
+        setTimeout(() => {
+          mensaje.style.display = 'none';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

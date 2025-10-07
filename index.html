@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <title>Datos para transferencia - Luciana Lu Repostería</title>
@@ -10,21 +10,21 @@
       color: #333;
       text-align: center;
       padding: 60px 20px;
-      font-size: 20px; /* Aumentamos el tamaño de fuente general */
+      font-size: 20px;
     }
     h1 {
-      font-size: 42px; /* Aumentamos el tamaño de la fuente */
+      font-size: 42px;
       color: #d94fa0; /* rosa principal */
       margin-bottom: 40px;
       letter-spacing: 2px;
     }
     .dato {
-      font-size: 28px; /* Aumentamos el tamaño de la fuente */
+      font-size: 28px;
       margin: 10px 0;
       color: #333;
     }
     #numero {
-      font-size: 36px; /* Aumentamos el tamaño de la fuente */
+      font-size: 36px;
       background: white;
       color: #d94fa0;
       padding: 18px 35px;
@@ -35,14 +35,14 @@
       display: inline-block;
       cursor: pointer;
       letter-spacing: 3px;
-      text-decoration: none; /* Aseguramos que no haya subrayado */
+      text-decoration: none; /* sin subrayado */
     }
     button {
       background-color: #d94fa0;
       color: white;
       border: none;
       padding: 15px 40px;
-      font-size: 24px; /* Aumentamos el tamaño de la fuente */
+      font-size: 24px;
       border-radius: 10px;
       cursor: pointer;
       margin-top: 20px;
@@ -51,11 +51,28 @@
     button:hover {
       background-color: #b93f86;
     }
+
+    /* Mensaje flotante */
     #mensaje {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #d94fa0;
+      color: white;
+      padding: 25px 40px;
+      border-radius: 12px;
+      font-size: 26px;
       display: none;
-      color: #4bb543;
-      font-size: 22px; /* Aumentamos el tamaño de la fuente */
-      margin-top: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      animation: fadeInOut 3s ease forwards;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -55%); }
+      10% { opacity: 1; transform: translate(-50%, -50%); }
+      90% { opacity: 1; transform: translate(-50%, -50%); }
+      100% { opacity: 0; transform: translate(-50%, -45%); }
     }
   </style>
 </head>
@@ -68,7 +85,8 @@
   <div id="numero">4152 3141 1447 4920</div>
   <br/>
   <button onclick="copiarNumero()">Copiar número</button>
-  <p id="mensaje">¡Número copiado!</p>
+
+  <div id="mensaje">¡Número copiado! Gracias por tu compra 🤗</div>
 
   <script>
     function copiarNumero() {
@@ -76,7 +94,7 @@
       navigator.clipboard.writeText(numero).then(() => {
         const mensaje = document.getElementById('mensaje');
         mensaje.style.display = 'block';
-        setTimeout(() => mensaje.style.display = 'none', 2000);
+        setTimeout(() => mensaje.style.display = 'none', 3000);
       });
     }
   </script>

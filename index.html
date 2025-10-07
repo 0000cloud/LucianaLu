@@ -2,50 +2,81 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Copiar número</title>
+  <title>Datos para transferencia - Luciana Lu Repostería</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f1e9;
-      padding: 60px 20px;
-      text-align: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #f5e5d4; /* color crema suave */
       color: #333;
+      text-align: center;
+      padding: 60px 20px;
     }
     h1 {
       font-size: 36px;
+      color: #d94fa0; /* rosa principal */
       margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+    .dato {
+      font-size: 22px;
+      margin: 10px 0;
+      color: #333;
     }
     #numero {
-      font-size: 48px;
+      font-size: 32px;
       background: white;
-      padding: 25px 40px;
+      color: #d94fa0;
+      padding: 18px 35px;
       border-radius: 12px;
       user-select: all;
-      margin-bottom: 30px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      cursor: pointer;
+      margin: 20px 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       display: inline-block;
-      letter-spacing: 5px;
+      cursor: pointer;
+      letter-spacing: 3px;
     }
     button {
-      background: #0052cc;
+      background-color: #d94fa0;
       color: white;
       border: none;
-      padding: 20px 50px;
-      font-size: 28px;
-      border-radius: 12px;
+      padding: 15px 40px;
+      font-size: 20px;
+      border-radius: 10px;
       cursor: pointer;
+      margin-top: 20px;
       transition: background-color 0.3s ease;
     }
     button:hover {
-      background: #003d99;
+      background-color: #b93f86;
+    }
+    #mensaje {
+      display: none;
+      color: #4bb543;
+      font-size: 18px;
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
   <h1>Datos para transferencia</h1>
+
+  <div class="dato"><strong>Banco:</strong> BBVA</div>
+  <div class="dato"><strong>Titular:</strong> Lucia Magdalena</div>
+  
   <div id="numero">4152 3141 1447 4920</div>
   <br/>
-  <button onclick="navigator.clipboard.writeText(document.getElementById('numero').textContent).then(() => alert('¡Número copiado!'));">Copiar número</button>
+  <button onclick="copiarNumero()">Copiar número</button>
+  <p id="mensaje">¡Número copiado!</p>
+
+  <script>
+    function copiarNumero() {
+      const numero = document.getElementById('numero').textContent;
+      navigator.clipboard.writeText(numero).then(() => {
+        const mensaje = document.getElementById('mensaje');
+        mensaje.style.display = 'block';
+        setTimeout(() => mensaje.style.display = 'none', 2000);
+      });
+    }
+  </script>
 </body>
 </html>
